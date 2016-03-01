@@ -1,5 +1,5 @@
 (function(){
     
-    angular.module("SocialNetwork",[]);
+    angular.module("socialNetwork",[]);
     
 }());

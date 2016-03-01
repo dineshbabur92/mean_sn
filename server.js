@@ -12,6 +12,9 @@ app.get("/",function(req, res){
     
 });
 
+app.get("/app", express.static(__dirname + "/app"));
+app.get("/node_modules", express.static(__dirname + "/node_modules"));
+
 app.listen(3000, function(){
     
     console.log("listening in port 3000");
