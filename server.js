@@ -12,8 +12,8 @@ app.get("/",function(req, res){
     
 });
 
-app.get("/app", express.static(__dirname + "/app"));
-app.get("/node_modules", express.static(__dirname + "/node_modules"));
+app.use("/app", express.static(__dirname + "/app"));
+app.use("/node_modules", express.static(__dirname + "/node_modules"));
 
 app.listen(3000, function(){
     
