@@ -1,5 +1,5 @@
 (function(){
-    
+//    var socialNetwork = angular.module("socialNetwork",["ui.router"]);
     angular.module("socialNetwork",["ui.router"])
         .config(function($stateProvider){
         

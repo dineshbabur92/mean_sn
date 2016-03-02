@@ -3,14 +3,14 @@
     angular.module("socialNetwork")
         .controller("signupController", ["$scope", "$state", "$http", function($scope, $state, $http){
             
-            $scope.createUser = function(){
-                
-                $http.post("/signup", {"email": $scope.email, "password": $scope.password}, function(response){
-                    
+            $scope.submit = function(){
+                console.log("submit clicked");
+                $http.post("/signup", $scope.newUser).success(function(response){
+                    console.log("responded");
                     console.log(response);
                     
-                }, function(error){
-                    
+                }).error(function(error){
+                    console.log("error");
                     console.log(error);
                     
                 });
