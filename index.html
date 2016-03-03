@@ -16,10 +16,15 @@
             <div class="container">
                 Index Page
                 <div class="pull-right">
-                    <input type="text" ng-model="login.email" type="form-control">
-                    <input type="password" ng-model="login.password" type="form-control">
-                    <button ng-click="login()">Login!</button>
-                    <a ui-sref="signup">Create an Account!</a>
+                    <div ng-if="!islogin">
+                        <input type="text" ng-model="cred.email" type="form-control">
+                        <input type="password" ng-model="cred.password" type="form-control">
+                        <button ng-click="login()">Login!</button>
+                        <a ui-sref="signup">Create an Account!</a>
+                    </div>
+                    <div ng-if="islogin">
+                        <button class="btn btn-primary" ui-sref="edit">Edit!</button>
+                    </div>
                 </div>
             </div>
         </nav>
