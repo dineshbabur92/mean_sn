@@ -19,7 +19,7 @@ app.get("/",function(req, res){
 });
 
 app.post("/signup", authController.signup);
-app.post("/login", authController.signup);
+app.post("/login", function(req, res){console.log("login received");});
 
 app.listen(3000, function(){
     
