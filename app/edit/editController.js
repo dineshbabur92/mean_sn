@@ -14,8 +14,8 @@
            if(file){
                
                Upload.upload({
-                    url: '/edit/upload_dp',
-                    data: {file: file, userid: JSON.stringify(localStorage.udata).userid }
+                    url: '/edit/upload_photo',
+                    data: {file: file, userid: JSON.parse(localStorage.udata).userid }
                     }).then(function (resp) {
                         console.log('Success ' + resp);
                     }, function (err) {
