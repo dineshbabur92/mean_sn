@@ -26,7 +26,9 @@
             $http.post("/login",$scope.cred).success(function(res){
                 
                // console.log("success");
-                localStorage.udata = JSON.parse(res);
+               // console.log(res);
+                //console.log(res.body);
+                localStorage.udata = JSON.stringify(res);
                 console.log(localStorage.udata);
                 $scope.islogin = true;
                 
