@@ -24,10 +24,10 @@ app.post("/signup", authController.signup);
 app.post("/login", authController.login); //function(req, res){console.log("login received");});
 app.post("/edit/upload_photo", multipartMid, editController.upload_photo);
 
-//app.post("edit/upload_info", editController.update_info);
+app.post("/edit/upload_info", editController.upload_info);
 
 app.listen(3000, function(){
     
     console.log("listening in port 3000");
     
-});;''
+});

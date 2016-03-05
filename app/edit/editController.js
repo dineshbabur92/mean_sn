@@ -17,9 +17,9 @@
                     url: '/edit/upload_photo',
                     data: {file: file, userid: JSON.parse(localStorage.udata).userid }
                     }).then(function (resp) {
-                        console.log('Success ' + resp);
+                        console.log('Success ', resp);
                     }, function (err) {
-                        console.log('Error: ' + err);
+                        console.log('Error: ', err);
                     }, function (evt) {
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                         console.log('progress: ' + progressPercentage + '% ');
@@ -31,7 +31,7 @@
             
         $scope.upload_info = function(){
             
-            $http.post("/edit/upload_info", $scope.edited).success(function(res){
+            $http.post("/edit/upload_info", { name: $scope.edited.name, bio: $scope.edited.bio, userid: JSON.parse(localStorage.udata).userid}).success(function(res){
                 
                 console.log(res);
                 
