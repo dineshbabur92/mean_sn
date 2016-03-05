@@ -31,12 +31,12 @@
                 
                 $http.get("/posts").success(function(res){
                     if(initial){
-                        console.log("initial call");
+                      //  console.log("initial call");
                         $scope.posts = res;
                     }
                     else if(res.length > $scope.posts.length){
                         
-                        console.log("new posts call")
+                      //  console.log("new posts call")
                         $scope.newPosts = res;
                         
                     }

@@ -1,7 +1,11 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <li ng-repeat="user in users" ng-if="myuserid !== user._id">
+<!--        {{following}}-->
+        <li ng-repeat="user in users" ng-if="myuser.userid !== user._id">
             {{user.email}}
+            <a ng-click="followUser(user._id, myuser.userid)" ng-if="!isFollowing(user._id)" class="btn btn-primary">Follow</a>
+            <a ng-click="" ng-if="isFollowing(user._id)" class="btn btn-primary">Unfollow</a>
+<!--            following.indexOf(user._id)>-1-->
         </li>
     </div>
 </div>

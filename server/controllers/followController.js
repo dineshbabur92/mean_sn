@@ -16,5 +16,28 @@ module.exports.getUsers = function(req, res){
         }
         
     });
+};
+
+module.exports.followUser = function(req, res){
+    
+    var following = req.body.following;
+    var follower = req.body.follower;
+    
+    User.findById(follower, function(err, user){
+        
+        user.following.push(following);
+        user.save();
+        
+    });
+    
+    User.findById(following, function(err, user){
+        
+        user.followers.push(follower);
+        user.save();
+        res.json({status: 200});
+        
+    });
+    
+    
     
 };

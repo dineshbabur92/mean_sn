@@ -14,7 +14,7 @@ module.exports.signup = function(req, res){
 module.exports.login = function(req, res){
     
     console.log("server login initiated");
-    console.log(req.body);
+    console.log("request body===========",req.body);
     user.find(req.body, function(err, results){
         
         if(err){
@@ -22,10 +22,10 @@ module.exports.login = function(req, res){
             console.log(err);
             
         }
-        if(results && results.length>0){
-            console.log(results[0]);
+        if(results && results.length==1){
+            console.log(results);
             console.log({"userid": results[0]._id.toString(), "email": results[0].email.toString()});
-            res.json({"userid": results[0]._id, "email": results[0].email});
+            res.json({"userid": results[0]._id, "email": results[0].email, "following": results[0].following});
             console.log("sent email");
             
         }

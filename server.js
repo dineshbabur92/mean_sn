@@ -28,12 +28,14 @@ app.get("/",function(req, res){
 });
 app.get("/posts", postController.getPosts);
 app.get("/users", followController.getUsers);
+app.post("/users/follow", followController.followUser);
 
 app.post("/signup", authController.signup);
 app.post("/login", authController.login); //function(req, res){console.log("login received");});
 app.post("/edit/upload_photo", multipartMid, editController.upload_photo);
 app.post("/edit/upload_info", editController.upload_info);
 app.post("/post", postController.postIt);
+
 
 app.listen(3000, function(){
     
