@@ -10,16 +10,18 @@ var editController = require("./server/controllers/editController");
 var postController = require("./server/controllers/postController");
 mongoose.connect("mongodb://localhost:27017/social_network");
 
-
+app.use(bodyParser.json());
 app.use("/app", express.static(__dirname + "/app"));
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
-app.use(bodyParser.json());
+app.use("/uploads", express.static(__dirname + "/uploads"));
+
 
 app.get("/",function(req, res){
     
     res.sendfile("index.html");
     
 });
+app.get("/posts", postController.getPosts);
 
 app.post("/signup", authController.signup);
 app.post("/login", authController.login); //function(req, res){console.log("login received");});

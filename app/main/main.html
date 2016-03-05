@@ -3,5 +3,7 @@
         <textarea class="form-control" ng-model="post" ng-keydown="postIt($event)" placeholder="type your post and press enter">
             
         </textarea>
+        <a ng-click="getNewPosts()" ng-if="diff>0">There are {{diff}} new tweets</a>
+        <post ng-repeat="post in posts" post="post"></post>
     </div>
 </div>

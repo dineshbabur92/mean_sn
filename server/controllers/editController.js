@@ -15,7 +15,7 @@ module.exports.upload_photo = function(req, res){
 //    console.log(userid);
     
     var currTS = new Date().getTime().toString();
-    var target = path.join(__dirname+"\\..\\uploads\\"+currTS+"_"+file.originalFilename);
+    var target = path.join(__dirname+"\\..\\..\\uploads\\"+currTS+"_"+file.originalFilename);
     var relImageUrl = "/uploads/"+currTS+"_"+file.originalFilename;
     
 //    console.log(target);

@@ -11,7 +11,7 @@
         .state("signup", {
             
             url: "/signup",
-            templateUrl: "app/signup/signup.html",
+            templateUrl: "/app/signup/signup.html",
             controller: "signupController"
             
         })
@@ -19,7 +19,7 @@
         .state("edit", {
             
             url: "/edit",
-            templateUrl:"app/edit/edit.html",
+            templateUrl:"/app/edit/edit.html",
             controller: "editController"
             
         })
@@ -27,7 +27,7 @@
         .state("main", {
             
             url:"/",
-            templateUrl: "app/main/main.html",
+            templateUrl: "/app/main/main.html",
             controller: "mainController"
             
         })

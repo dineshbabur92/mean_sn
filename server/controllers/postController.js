@@ -23,11 +23,13 @@ module.exports.postIt = function(req, res){
                     console.log(err);
                 }
                 else{
-                    console.log("post successful");
-                    Post.find({}, function(err, results){
+                    //console.log("post successful");
+                    Post.find({})
+                        .sort({ timestamp: -1})
+                        .exec(function(err, results){
                         
-                        console.log(results);
-                        console.log(res);
+                        //console.log(results);
+                        //console.log(res);
                         res.json(results);
                         
                     });
@@ -40,4 +42,21 @@ module.exports.postIt = function(req, res){
     });
     
     
-}
+};
+
+module.exports.getPosts = function(req, res){
+    
+    Post.find({})
+        .sort({timestamp: -1})
+        .exec(function(err, posts){
+        if(err){
+            
+            console.log(err);
+            
+        }
+        res.json(posts);
+        
+    });
+    
+    
+}; 
