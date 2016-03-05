@@ -18,7 +18,8 @@
 //            
 //        });
         
-        if(localStorage.udata){ islogin=true; }
+        if(localStorage.udata !== undefined){$scope.islogin=true; }
+        
         $scope.login = function(){
            // console.log("login started");
             //console.log("scope login", $scope.login);
@@ -38,7 +39,14 @@
                 
             });
 
-        }
+        };
+        
+        $scope.logout = function(){
+            console.log("logout called");
+          localStorage.clear();
+            $scope.islogin = false;
+            
+        };
         
     }]);
     

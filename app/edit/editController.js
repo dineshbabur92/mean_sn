@@ -3,6 +3,7 @@
     angular.module("socialNetwork")
         .controller("editController",["$scope", "$state", "$http", "Upload", function($scope, $state, $http, Upload){
         
+        console.log("editController working");
        $scope.$watch(function(){return $scope.file}, function(){
            
            $scope.upload_photo($scope.file);

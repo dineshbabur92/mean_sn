@@ -7,6 +7,7 @@ var fs = require("fs");
 var app = express();
 var authController = require("./server/controllers/authController");
 var editController = require("./server/controllers/editController");
+var postController = require("./server/controllers/postController");
 mongoose.connect("mongodb://localhost:27017/social_network");
 
 
@@ -23,8 +24,8 @@ app.get("/",function(req, res){
 app.post("/signup", authController.signup);
 app.post("/login", authController.login); //function(req, res){console.log("login received");});
 app.post("/edit/upload_photo", multipartMid, editController.upload_photo);
-
 app.post("/edit/upload_info", editController.upload_info);
+app.post("/post", postController.postIt);
 
 app.listen(3000, function(){
     

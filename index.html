@@ -19,23 +19,27 @@
         <script src="app/signup/signup_controller.js"></script>
         <script src="app/navigation/nav_controller.js"></script>
         <script src="app/edit/editController.js"></script>
+        <script src="app/main/mainController.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-static-top" ng-controller="navController">
-            <div class="container">
-                Index Page
+<!--            <div class="container">-->
+                Social Network
                 <div class="pull-right">
-                    <div ng-if="!islogin">
+                    <span ng-if="!islogin">
                         <input type="text" ng-model="cred.email" type="form-control">
                         <input type="password" ng-model="cred.password" type="form-control">
                         <button ng-click="login()">Login!</button>
                         <a ui-sref="signup">Create an Account!</a>
-                    </div>
-                    <div ng-if="islogin">
-                        <button class="btn btn-primary" ui-sref="edit">Edit!</button>
-                    </div>
+                    </span>
+<!--                    <div ng-if="islogin">-->
+                        <a class="btn btn-primary" ng-if="islogin" ui-sref="edit">Edit</a>
+<!--                    </div>-->
+<!--                    <div ng-if="islogin">-->
+                        <a ng-click="logout()" ng-if="islogin" class="btn btn-primary">logout</a>
+<!--                    </div>-->
                 </div>
-            </div>
+<!--            </div>-->
         </nav>
         <div class="container" ui-view>
         
