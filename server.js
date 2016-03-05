@@ -2,12 +2,17 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var multipart = require("connect-multiparty");
-var multipartMid = multipart();
 var fs = require("fs");
+
+var multipartMid = multipart();
+
 var app = express();
+
 var authController = require("./server/controllers/authController");
 var editController = require("./server/controllers/editController");
 var postController = require("./server/controllers/postController");
+var followController = require("./server/controllers/followController");
+
 mongoose.connect("mongodb://localhost:27017/social_network");
 
 app.use(bodyParser.json());
@@ -22,6 +27,7 @@ app.get("/",function(req, res){
     
 });
 app.get("/posts", postController.getPosts);
+app.get("/users", followController.getUsers);
 
 app.post("/signup", authController.signup);
 app.post("/login", authController.login); //function(req, res){console.log("login received");});

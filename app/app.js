@@ -32,6 +32,14 @@
             
         })
         
+        .state("follow", {
+            
+            url:"/follow",
+            templateUrl: "/app/follow/follow.html",
+            controller: "followController"
+            
+        })
+    
     })
     
 }());
