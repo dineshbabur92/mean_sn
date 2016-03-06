@@ -25,7 +25,7 @@ module.exports.upload_photo = function(req, res){
         
         if(err){console.log(err);}
         else{
-            console.log("upload successful");
+          //  console.log("upload successful");
         }
         
     });
@@ -41,7 +41,7 @@ module.exports.upload_photo = function(req, res){
                     res.json({status: 500});
                 }
                 else {
-                    console.log("update successful");
+                 //   console.log("update successful");
                     res.json({status: 200});
                 }
         });
@@ -74,7 +74,7 @@ module.exports.upload_info = function(req, res){
             }
             else{
                 
-                console.log("update successful");
+              //  console.log("update successful");
                 res.json({status: 200});
             }
             

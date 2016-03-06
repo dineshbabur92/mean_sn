@@ -16,7 +16,7 @@
                 }
                 
             });  
-            $scope.myuser = JSON.parse(localStorage.udata);
+//            $scope.myuser = JSON.parse(localStorage.udata);
 //            $scope.following = JSON.parse(localStorage.udata).following;
             
             $http.get("/users").then(function(res){
@@ -29,13 +29,13 @@
             
             $scope.followUser = function(following, follower){
                 
-                console.log({ "following": following, "follower": follower});
+            //    console.log({ "following": following, "follower": follower});
                 $http.post("/users/follow",{ "following": following, "follower": follower}).success(function(){
                     
                     $scope.myuser.following.push({_id: following});
-                    console.log("pushed following");
+                  //  console.log("pushed following");
                     localStorage.udata = JSON.stringify($scope.myuser);
-                    console.log(localStorage.udata);
+                  //  console.log(localStorage.udata);
                     
                 });
                 

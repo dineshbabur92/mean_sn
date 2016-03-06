@@ -12,7 +12,7 @@ module.exports.postIt = function(req, res){
         if(err){ console.log(err);}
         else{
             
-            console.log(result);
+           // console.log(result);
             post.name = result.name;
             post.image = result.image;
             
@@ -45,18 +45,46 @@ module.exports.postIt = function(req, res){
 };
 
 module.exports.getPosts = function(req, res){
-    
-    Post.find({})
-        .sort({timestamp: -1})
-        .exec(function(err, posts){
-        if(err){
-            
-            console.log(err);
-            
-        }
-        res.json(posts);
+    //console.log("getposts request body===============",req.query);
+    var ids = [];
+    if(req.query.userid){
+        User.findById(req.query.userid, function(err, user){
+            if(err){
+
+                console.log(err);
+
+            }
+            //console.log("following==========", user.following);
+            for(var i =0; i< user.following.length;i++){
+
+                ids.push(user.following[i]._id);
+
+            }
+             ids.push(req.query.userid);
+            //console.log("after===========", ids);
+
+        }).then(function(resp){
+
+                Post.find({userid: { $in: ids}})
+                    .sort({timestamp: -1})
+                    .exec(function(err, results){
+
+                   res.json(results); 
+
+                });
+
+        });
+    }
+    else{
         
-    });
-    
+        Post.find({})
+            .sort({timestamp: -1})
+            .exec(function(err, results){
+
+                   res.json(results); 
+
+                });
+        
+    }
     
 }; 
