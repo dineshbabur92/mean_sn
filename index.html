@@ -25,23 +25,35 @@
     <body>
         <nav class="navbar navbar-default navbar-static-top" ng-controller="navController">
 <!--            <div class="container">-->
-                Social Network
-                <div class="pull-right">
-                    <span ng-if="!islogin">
-                        <input type="text" ng-model="cred.email" type="form-control">
-                        <input type="password" ng-model="cred.password" type="form-control">
-                        <button ng-click="login()">Login!</button>
-                        <a ui-sref="signup">Create an Account!</a>
-<!--                        {{cred}}-->
-                    </span>
-<!--                    <div ng-if="islogin">-->
-                        <a class="btn btn-primary" ng-if="islogin" ui-sref="edit">Edit</a>
-<!--                    </div>-->
-<!--                    <div ng-if="islogin">-->
-                        <a ng-click="logout()" ng-if="islogin" class="btn btn-primary">logout</a>
-<!--                    </div>-->
-                        <a class="btn btn-primary" ng-if="islogin" ui-sref="follow">follow</a>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Social Network</a>
                 </div>
+<!--                <div class="pull-right">-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <span ng-if="!islogin">
+                            <input type="text" ng-model="cred.email" type="form-control">
+                            <input type="password" ng-model="cred.password" type="form-control">
+                            <button ng-click="login()">Login!</button>
+                            <a ui-sref="signup">Create an Account!</a>
+<!--                        {{cred}}-->
+                        </span>
+                        </li>
+<!--                    <div ng-if="islogin">-->
+                        <li>
+                            <a class="btn btn-primary" ng-if="islogin" ui-sref="edit">Edit</a>
+                        </li>
+<!--                    </div>-->
+<!--                    <div ng-if="islogin">-->
+                        <li>
+                            <a ng-click="logout()" ng-if="islogin" class="btn btn-primary">logout</a>
+                        </li>
+<!--                    </div>-->
+                        <li>
+                            <a class="btn btn-primary" ng-if="islogin" ui-sref="follow">follow</a>
+                        </li>
+                    </ul>
+<!--                </div>-->
 <!--            </div>-->
         </nav>
         <div class="container" ui-view>
